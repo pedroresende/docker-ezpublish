@@ -1,0 +1,32 @@
+version: '2'
+services:
+  db:
+    image: mysql/mysql-server:5.5
+    ports:
+        - '3307:3306'
+    environment:
+        - MYSQL_ROOT_PASSWORD=oko
+        - MYSQL_ROOT_HOST=%
+        - MYSQL_DATABASE=db
+        - MYSQL_USER=db
+        - MYSQL_PASSWORD=db
+  php:
+    image: php:5.6-fpm
+    ports:
+      - '9000:9000'
+    expose:
+      - '9000'
+    links:
+      - db
+    volumes:
+      - ./ezpublish:/var/www/html/ezpublish
+  web:
+    build: build/nginx
+    ports:
+        - '8080:80'
+    links:
+        - php
+        - db
+    volumes:
+        - /tmp:/var/log/nginx
+        - ./ezpublish:/var/www/html/ezpublish
