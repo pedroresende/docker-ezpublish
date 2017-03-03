@@ -3,17 +3,15 @@ services:
   db:
     image: mysql/mysql-server:5.5
     ports:
-        - '3307:3306'
+        - '${MYSQL_LOCAL_PORT}:3306'
     environment:
-        - MYSQL_ROOT_PASSWORD=oko
-        - MYSQL_ROOT_HOST=%
-        - MYSQL_DATABASE=db
-        - MYSQL_USER=db
-        - MYSQL_PASSWORD=db
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_ROOT_HOST=${MYSQL_ROOT_HOST}
+        - MYSQL_DATABASE=${MYSQL_DATABASE}
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
   php:
-    image: php:5.6-fpm
-    ports:
-      - '9000:9000'
+    image: php:${PHP_VERSION}-fpm
     expose:
       - '9000'
     links:
@@ -23,7 +21,7 @@ services:
   web:
     build: build/nginx
     ports:
-        - '8080:80'
+        - '${LOCAL_WEB_PORT}:80'
     links:
         - php
         - db
