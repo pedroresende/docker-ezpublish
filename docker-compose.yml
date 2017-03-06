@@ -13,7 +13,8 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
   php:
-    image: php:${PHP_VERSION}-fpm
+#    build: build/php
+    image: pmmresende/ezpublish-php-legacy
     expose:
       - '9000'
     links:
@@ -21,6 +22,7 @@ services:
     volumes:
       - ./ezpublish:/var/www/html/ezpublish
   web:
+#    build: build/nginx
     image: pmmresende/ezpublish-nginx-legacy
     ports:
         - '${LOCAL_WEB_PORT}:80'
