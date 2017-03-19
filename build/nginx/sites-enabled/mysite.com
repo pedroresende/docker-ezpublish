@@ -7,7 +7,7 @@ server {
     # Further documentation: http://nginx.org/en/docs/http/server_names.html
     server_name  localhost;
 
-    root /var/www/html/ezpublish;
+    root /var/www/html/ezpublish/web;
 
     # Legacy example
     # root %BASEDIR%/ezpublish_legacy;
@@ -39,7 +39,7 @@ server {
             # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
             # Make sure to comment the "ez_params.d/ez_prod_rewrite_params" include above in dev.
             # Defaults to "prod" if omitted
-            #fastcgi_param ENVIRONMENT dev;
+            fastcgi_param ENVIRONMENT dev;
 
             # Whether to use Symfony's ApcClassLoader.
             # Possible values: 0 or 1

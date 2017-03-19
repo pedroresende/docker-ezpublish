@@ -22,8 +22,8 @@ services:
     volumes:
       - ./ezpublish:/var/www/html/ezpublish
   web:
-#    build: build/nginx
-    image: pmmresende/ezpublish-nginx-legacy
+    build: build/nginx
+#    image: pmmresende/ezpublish-nginx-legacy
     ports:
         - '${LOCAL_WEB_PORT}:80'
     links:
