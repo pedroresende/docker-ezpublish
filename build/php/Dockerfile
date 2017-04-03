@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y php5 php5-cli php5-gd php5-fpm php5-mys
 
 ADD conf/www.conf /etc/php5/fpm/pool.d/www.conf
 ADD conf/php-fpm.conf /etc/php5/fpm/php-fpm.conf
+ADD conf/memory.ini /etc/php5/fpm/conf.d/memory.ini
 
 WORKDIR /var/www/html/ezpublish
 
