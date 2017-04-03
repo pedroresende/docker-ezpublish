@@ -13,8 +13,8 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
   php:
-#    build: build/php
-    image: pmmresende/ezpublish-php-legacy
+    build: build/php
+#    image: pmmresende/ezpublish-php-legacy
     expose:
       - '9000'
     links:
@@ -30,5 +30,5 @@ services:
         - php
         - db
     volumes:
-        - /tmp:/var/log/nginx
+        - ./logs:/var/log/nginx
         - ./ezpublish:/var/www/html/ezpublish
