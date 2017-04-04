@@ -11,7 +11,7 @@ services:
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
-      - ./mysql:/var/lib/mysql
+      - db-sync:/var/lib/mysql:rw
   php:
 #    build: build/php
     image: pmmresende/ezpublish-php-legacy
@@ -20,7 +20,7 @@ services:
     links:
       - db
     volumes:
-      - ./ezpublish:/var/www/html/ezpublish
+      - ezpublish-sync:/var/www/html/ezpublish:rw
   web:
 #    build: build/nginx
     image: pmmresende/ezpublish-nginx-legacy
@@ -30,5 +30,12 @@ services:
         - php
         - db
     volumes:
-        - /tmp:/var/log/nginx
-        - ./ezpublish:/var/www/html/ezpublish
+        - nginx-sync:/var/log/nginx:rw
+        - ezpublish-sync:/var/www/html/ezpublish:rw
+volumes:
+  db-sync:
+    external: true
+  nginx-sync:
+    external: true
+  ezpublish-sync:
+    external: true
