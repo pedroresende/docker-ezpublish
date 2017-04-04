@@ -6,15 +6,26 @@ MySQL Server.
 
 # Requirements
 
+- docker-sync (https://github.com/EugenMayer/docker-sync/wiki) (MacOS)
 - docker (https://www.docker.com/community-edition#/download)
 - docker-compose (https://docs.docker.com/compose/install/)
 
 # Run
 
+## Linux
+
 Extract eZ Publish legacy into ezpublish folder
 
 ```
 $ docker-compose up
+```
+
+## MacOS
+
+Extract eZ Publish legacy into ezpublish folder
+
+```
+$ docker-sync-stack start
 ```
 
 In order to access the database
