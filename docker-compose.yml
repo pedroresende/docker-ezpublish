@@ -17,7 +17,7 @@ services:
 #    image: pmmresende/ezpublish-php-legacy
     expose:
       - '9000'
-    links:
+    depends_on:
       - db
     volumes:
       - ./ezpublish:/var/www/html/ezpublish:cached
@@ -26,9 +26,18 @@ services:
 #    image: pmmresende/ezpublish-nginx-legacy
     ports:
         - '${LOCAL_WEB_PORT}:80'
-    links:
+    depends_on:
         - php
         - db
     volumes:
         - ./logs:/var/log/nginx:cached
         - ./ezpublish:/var/www/html/ezpublish:cached
+  ezfind:
+    build: build/ezfind
+    ports:
+        - '${LOCAL_EZFIND_PORT}:8983'
+    depends_on:
+        - php
+        - db
+    volumes:
+      - ./ezpublish:/var/www/html/ezpublish:cached
