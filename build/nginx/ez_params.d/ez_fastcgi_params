@@ -2,9 +2,11 @@
 # Including the distribution's default fastcgi parameters
 include fastcgi_params;
 
-fastcgi_buffer_size 128k;
-fastcgi_buffers 4 256k;
-fastcgi_busy_buffers_size 256k;
+#fastcgi_buffer_size 128k;
+#fastcgi_buffers 4 256k;
+fastcgi_buffers 128 4096k;
+fastcgi_buffer_size 4096k;
+fastcgi_busy_buffers_size 4096k;
 
 set $fc_script_name "index.php";
 
