@@ -5,4 +5,4 @@ WORKDIR /var/www/html/ezpublish/ezpublish_legacy/extension/ezfind/java
 
 EXPOSE 8983
 
-CMD ["solr.sh"]
+CMD ["./solr.sh"]
