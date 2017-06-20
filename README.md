@@ -1,4 +1,4 @@
-# Docker eZ Publish 5.x
+# Docker eZ Publish Legacy
 
 This docker is an exercise to run eZ Publish legacy < 5.0 on docker.
 This is composed by 3 containers, 1 for Nginx, 1 for PHP-FPM and another for
@@ -6,7 +6,6 @@ MySQL Server.
 
 # Requirements
 
-- docker-sync (https://github.com/EugenMayer/docker-sync/wiki) (MacOS)
 - docker (https://www.docker.com/community-edition#/download)
 - docker-compose (https://docs.docker.com/compose/install/)
 
