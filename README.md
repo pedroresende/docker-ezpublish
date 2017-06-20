@@ -1,4 +1,4 @@
-# Docker eZ Publish Legacy
+# Docker eZ Publish 5.x
 
 This docker is an exercise to run eZ Publish legacy < 5.0 on docker.
 This is composed by 3 containers, 1 for Nginx, 1 for PHP-FPM and another for
