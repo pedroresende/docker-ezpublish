@@ -20,7 +20,7 @@ services:
     links:
       - db
     volumes:
-      - ezpublish-sync:/var/www/html/ezpublish:rw
+      - ./ezpublish:/var/www/html/ezpublish:cached
   web:
     build: build/nginx
 #    image: pmmresende/ezpublish-nginx-legacy
