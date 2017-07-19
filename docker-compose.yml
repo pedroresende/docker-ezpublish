@@ -32,3 +32,12 @@ services:
     volumes:
         - ./log:/var/log/nginx:cached
         - ./ezpublish:/var/www/html/ezpublish:cached
+  ezfind:
+    build: build/ezfind
+    ports:
+        - '${LOCAL_EZFIND_PORT}:8983'
+    depends_on:
+        - php
+        - db
+    volumes:
+      - ./ezpublish:/var/www/html/ezpublish:cached
