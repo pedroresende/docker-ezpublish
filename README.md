@@ -1,6 +1,6 @@
 # Docker eZ Publish 5.x
 
-This docker is an exercise to run eZ Publish legacy < 5.0 on docker.
+This docker is an exercise to run eZ Publish legacy > 5.0 on docker.
 This is composed by 4 containers, 1 for Nginx, 1 for PHP-FPM another for
 MySQL Server and finally one for eZ Find
 
